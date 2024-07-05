@@ -56,6 +56,21 @@
     // itteration in php
 
 
-    for($i = 0;$i < 25;$i++){
-        echo $i . "<br>";
+    // for($i = 0;$i < 25;$i++){
+    //     echo $i . "<br>";
+    // }
+
+
+    // super globals in php
+    // $Global , $POST,$GET,$SESSION,$COOKIE,$FILE in PHP
+
+    // $SESSION variables are use to store information through multiple pages till browser closes.
+
+    $number = 78;
+
+    function test(){
+        global $number;
+        echo $number;
     }
+
+    test();

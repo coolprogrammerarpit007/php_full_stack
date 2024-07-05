@@ -52,10 +52,10 @@
 </head>
 <body>
 <header>
-    <div><a href="home.php">Home</a></div>
+    <div><a href="index.php">Home</a></div>
     <div><a href="profile.php">Profile</a></div>
     <div><a href="login.php">Login</a></div>
-    <div><a href="signup.php">SignUp</a></div>
+    <div><a href="register.php">SignUp</a></div>
 </header>
 </body>
 </html>

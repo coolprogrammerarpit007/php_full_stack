@@ -44,6 +44,16 @@
             border: none;
             border-radius: 1rem;
         }
+
+        .sign-up-title{
+            padding: 2rem;
+        }
+        .sign-up-title h3{
+            text-align: center;
+            color: #000;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +62,10 @@
     
     ?>
 
+<div class="sign-up-title">
+
+    <h3>Sign UP: Here</h3>
+</div>
 <div class="form-container">
     <form action="" method="post">
         <input type="text" name="username" id="" placeholder="UserName">

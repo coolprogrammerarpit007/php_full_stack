@@ -63,7 +63,6 @@
 <body>
     <?php 
     include "header.php";
-    
     ?>
 
 <div class="sign-up-title">

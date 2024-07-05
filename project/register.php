@@ -66,7 +66,6 @@
     ?>
 
 <div class="sign-up-title">
-
     <h3>Sign UP: Here</h3>
 </div>
 <div class="form-container">

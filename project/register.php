@@ -1,5 +1,21 @@
 <?php
     require 'functions.php';
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        // storing user details in the database
+
+        $username = addslashes($_POST['username']);
+        $email = addslashes($_POST['email']);
+        $password = addslashes($_POST['password']);
+        $date = date('Y-m-d H:i:s');
+
+        // sql query to insert data into users table
+        $sql = "insert into users (username,email,password,date) values ('$username','$email','$password','$date')";
+        $result = mysqli_query($conn ,$sql);
+
+        // redirecting towards the login page
+        header("Location: login.php");
+        die;
+    }
 
 ?>
 <!DOCTYPE html>
@@ -70,9 +86,9 @@
 </div>
 <div class="form-container">
     <form action="" method="post">
-        <input type="text" name="username" id="" placeholder="UserName">
-        <input type="text" name="email" id="" placeholder="Email">
-        <input type="text" name="password" id="" placeholder="Password">
+        <input type="text" name="username" id="" placeholder="UserName" required>
+        <input type="email" name="email" id="" placeholder="Email" required>
+        <input type="password" name="password" id="" placeholder="Password" required>
         <button>SignUp</button>
     </form>
 </div>

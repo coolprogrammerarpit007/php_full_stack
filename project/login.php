@@ -1,3 +1,28 @@
+<?php
+require 'functions.php';
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    // storing user details in the database
+
+    $email = addslashes($_POST['email']);
+    $password = addslashes($_POST['password']);
+
+    // sql query to insert data into users table
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        // storing the data into session
+        $_SESSION['info'] = $row;
+        header("Location: profile.php");
+        die;
+    }
+    else{
+        $error = 'wrong email or password!';
+    }
+    // redirecting towards the login page
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,10 +82,17 @@
     </style>
 </head>
 <body>
-    <?php 
-    include "header.php";
-    
-    ?>
+    <?php
+include "header.php";
+
+?>
+<?php 
+if(!empty($error)){
+    echo "<div>" . $error . "</div>";
+}
+
+
+?>
 
 <div class="log-in-title">
 
@@ -68,16 +100,15 @@
 </div>
 <div class="form-container">
     <form action="" method="post">
-        <input type="text" name="username" id="" placeholder="UserName">
-        <input type="text" name="email" id="" placeholder="Email">
-        <input type="text" name="password" id="" placeholder="Password">
+        <input type="text" name="email" id="" placeholder="Email" required>
+        <input type="password" name="password" id="" placeholder="Password" required>
         <button>Login</button>
     </form>
 </div>
 
 <?php
-    include "footer.php";
+include "footer.php";
 ?>
-    
+
 </body>
 </html>

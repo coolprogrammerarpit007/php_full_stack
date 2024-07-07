@@ -1,3 +1,10 @@
+<?php
+
+require "functions.php";
+check_login();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,10 +70,10 @@
     </style>
 </head>
 <body>
-    <?php 
-    include "header.php";
-    
-    ?>
+    <?php
+include "header.php";
+
+?>
 
 <div class="profile-title">
     <h3>User Profile</h3>
@@ -78,10 +85,10 @@
             <td><img src="img.jpg" alt="image" style="width:150px;height:150px;object-fit:cover;"></td>
         </tr>
         <tr>
-            <td>John</td>
+            <td><?php echo $_SESSION['info']['username'] ?></td>
         </tr>
         <tr>
-            <td>john@email.com</td>
+            <td><?php echo $_SESSION['info']['email'] ?></td>
         </tr>
     </table>
 </div>
@@ -93,8 +100,8 @@
 </div>
 
 <?php
-    include "footer.php";
+include "footer.php";
 ?>
-    
+
 </body>
 </html>

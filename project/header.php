@@ -46,6 +46,11 @@
             background-color: 1px solid #000;
         }
 
+        button{
+            padding: 10px;
+            cursor: pointer;
+        }
+
         
 
     </style>

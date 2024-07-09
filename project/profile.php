@@ -75,29 +75,36 @@ include "header.php";
 
 ?>
 
-<div class="profile-title">
-    <h3>User Profile</h3>
-</div>
-<hr>
-<div class="table">
-    <table style="text-align: center;">
-        <tr>
-            <td><img src="img.jpg" alt="image" style="width:150px;height:150px;object-fit:cover;"></td>
-        </tr>
-        <tr>
-            <td><?php echo $_SESSION['info']['username'] ?></td>
-        </tr>
-        <tr>
-            <td><?php echo $_SESSION['info']['email'] ?></td>
-        </tr>
-    </table>
-</div>
-<div class="form-container">
-    <form action="" method="post">
-        <textarea name="post" id="post" rows="8" placeholder="Create a post here..."></textarea>
-        <button>Post Message</button>
-    </form>
-</div>
+
+<?php if (!empty($_GET['action']) && $_GET['action'] === 'edit'): ?>
+<?php else:?>
+    <div class="profile-title">
+        <h3>User Profile</h3>
+    </div>
+    <hr>
+    <div class="table" style="margin-top:5rem">
+        <table style="text-align: center;">
+            <tr>
+                <td><img src="img.jpg" alt="image" style="width:150px;height:150px;object-fit:cover;"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 2.5rem;"><?php echo $_SESSION['info']['username'] ?></td>
+            </tr>
+            <tr>
+                <td style="font-size: 2.5rem;"><?php echo $_SESSION['info']['email'] ?></td>
+            </tr>
+        </table>
+        <a href="profile.php?action=edit">
+            <button>Edit Profile</button>
+        </a>
+    </div>
+    <div class="form-container">
+        <form action="" method="post">
+            <textarea name="post" id="post" rows="8" placeholder="Create a post here..."></textarea>
+            <button>Post Message</button>
+        </form>
+    </div>
+    <?php endif;?>
 
 <?php
 include "footer.php";
